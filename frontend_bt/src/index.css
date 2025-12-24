@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* GLOBAL THEME TOKENS */
+:root {
+  /* Font */
+  font-family: "Inter";
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Light Theme Defaults */
+  --color-bg: #f8f9fa;
+  --color-text: #142e33;
+  --color-muted: #5e6a6d;
+
+  --color-primary: #fac359;
+  --color-primary-hover: #e0a840;
+  --color-primary-active: #c78f2a;
+
+  --color-secondary: #142e33;
+  --color-secondary-hover: #1b3a40;
+
+  --color-accent: #501b14;
+  --color-accent-hover: #69241b;
+
+  --color-surface: #ffffff;
+  --color-border: #e2e5e6;
+
+  /* STATUS COLORS — LIGHT */
+  --status-success: #2e622e;
+  --status-success-bg: #e8f1e8;
+
+  --status-pending: #8c6a1e;
+  --status-pending-bg: #f8f2df;
+
+  --status-rejected: #7a2e2a;
+  --status-rejected-bg: #f4e8e7;
+
+  color-scheme: light;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* DARK THEME (auto if system prefers) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    font-family: "Inter";
+    /* --color-bg: #0f1a1c; */
+    --color-bg: gray-900;
+    --color-text: #e9ecef;
+    --color-muted: #9ca7a9;
+
+    --color-surface: #1e2c2f;
+    --color-border: #243436;
+
+    /* STATUS COLORS — DARK */
+    --status-success: #7fbf7f;
+    --status-success-bg: #1a2a1a;
+
+    --status-pending: #d9b86a;
+    --status-pending-bg: #2a2515;
+
+    --status-rejected: #c98682;
+    --status-rejected-bg: #2a1b1a;
+
+    color-scheme: dark;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+}
+
+/* LINKS */
+a {
+  font-weight: 500;
+  /* color: var(--color-text); */
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* BODY */
+body {
+  margin: 0;
+  font-family: "Inter";
+}
+
+/* HEADINGS */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+/* BUTTONS */
+button {
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+
+  /* background-color: var(--color-primary); */
+  /* color: var(--color-secondary); */
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  /* background-color: var(--color-primary-hover); */
+}
+
+button:active {
+  /* background-color: var(--color-primary-active); */
+}
+
+button:focus,
+button:focus-visible {
+  /* outline: 3px solid var(--color-primary); */
+}
