@@ -52,7 +52,8 @@ import React from "react";
 import Input from "../components/input_forms/InputText";
 import CheckboxField from "../components/input_forms/Checkbox";
 import Card from "../components/Card";
-import logoBBKHIT from "../assets/logo_bbkhit.png";
+// import logoBBKHIT from "../assets/logo_bbkhit.png";
+import logoBBKHIT from "../assets/logo_bbkhit(2).png";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
@@ -71,7 +72,7 @@ export default function LoginPage() {
 
       <Card>
         <div className="shrink-0 flex justify-center items-center">
-          <img alt="Baratin" src={logoBBKHIT} className="w-20 h-auto" />
+          <img alt="Baratin" src={logoBBKHIT} className="w-50 h-auto" />
         </div>
 
         <Input

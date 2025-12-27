@@ -46,16 +46,16 @@
 
 import { useState } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Form from "./components/Forms";
-import Dropdown from "./components/Dropdown";
-import Login from "./pages/Login";
+// import Navbar from "./components/Navbar";
+// import Form from "./components/Forms";
+// import Dropdown from "./components/Dropdown";
 import Layout from "./components/Layout";
 import DocumentType from "./pages/users/DocumentType";
 import CertificateType from "./pages/users/CertificateType";
 import { Route, Routes } from "react-router-dom";
 import Error404 from "./pages/ErrorPage";
 import LoginPage from "./pages/Login";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -67,6 +67,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/users/document-type" element={<DocumentType />} />
         <Route path="/users/certificate-type" element={<CertificateType />} />
+        <Route path="/users/profile" element={<Profile />} />
       </Route>
 
       {/* Global 404 — HARUS DI LUAR Layout */}

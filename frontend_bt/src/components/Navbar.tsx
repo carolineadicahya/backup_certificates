@@ -10,7 +10,8 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { classNames } from "../utils/classNames";
 import { useLocation } from "react-router-dom";
-import logoBBKHIT from "../assets/logo_bbkhit.png";
+import logoBBKHIT from "../assets/logo_bbkhit(2).png";
+import ProfilePicture from "../assets/rizal 2020.jpg";
 // import logoBarantin from "../assets/logo_barantin.png";
 
 const navigation = [
@@ -20,8 +21,8 @@ const navigation = [
 ];
 
 const userNavigation = [
-  { name: "Profil Anda", href: "/profile" },
-  { name: "Keluar", href: "/logout" },
+  { name: "Profil Anda", href: "/users/profile" },
+  { name: "Keluar", href: "/login" },
 ];
 
 export default function Navbar() {
@@ -41,7 +42,7 @@ export default function Navbar() {
             {/* Left */}
             <div className="flex items-center">
               <div className="shrink-0">
-                <img alt="Baratin" src={logoBBKHIT} className="w-10 h-auto" />
+                <img alt="Baratin" src={logoBBKHIT} className="w-25 h-auto" />
               </div>
 
               {/* Desktop menu */}
@@ -73,7 +74,7 @@ export default function Navbar() {
                   <MenuButton className="relative flex max-w-xs items-center rounded-full focus-visible:outline-(--color-primary)">
                     <img
                       alt="User"
-                      src="https://i.pravatar.cc/150"
+                      src={ProfilePicture}
                       className="size-8 rounded-full outline outline-white/10"
                     />
                   </MenuButton>
