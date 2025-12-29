@@ -11,18 +11,18 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { classNames } from "../utils/classNames";
 import { useLocation } from "react-router-dom";
 import logoBBKHIT from "../assets/logo_bbkhit(2).png";
-import ProfilePicture from "../assets/rizal 2020.jpg";
+import ProfilePicture from "../assets/nisa wisuda.jpeg";
 // import logoBarantin from "../assets/logo_barantin.png";
 
 const navigation = [
-  { name: "Dashboard", href: "/" },
-  { name: "Sertifikasi", href: "/sertifikasi" },
+  { name: "Dashboard", href: "/users/document-type" },
+  { name: "Sertifikasi", href: "/users/certificate-type" },
   { name: "Formulir", href: "/formulir" },
 ];
 
 const userNavigation = [
   { name: "Profil Anda", href: "/users/profile" },
-  { name: "Keluar", href: "/login" },
+  { name: "Keluar", href: "/" },
 ];
 
 export default function Navbar() {
@@ -42,7 +42,7 @@ export default function Navbar() {
             {/* Left */}
             <div className="flex items-center">
               <div className="shrink-0">
-                <img alt="Baratin" src={logoBBKHIT} className="w-25 h-auto" />
+                <img alt="Baratin" src={logoBBKHIT} className="w-30 h-auto" />
               </div>
 
               {/* Desktop menu */}

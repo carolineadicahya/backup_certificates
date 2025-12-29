@@ -485,48 +485,116 @@
 //   );
 // }
 
+// // -------------------------------------------------------------------------------------------
+// import InputText from "./input_forms/InputText";
+// import TextArea from "./input_forms/TextArea";
+// import SelectField from "./input_forms/SelectField";
+// import CheckboxField from "./input_forms/Checkbox";
+// import RadioField from "./input_forms/RadioField";
+// import UploadFile from "./input_forms/UploadFile";
+
+// export default function Form() {
+//   return (
+//     <form className="bg-F8F6F0 p-6 rounded-md space-y-8">
+//       <InputText label="Username" id="username" placeholder="janesmith" />
+
+//       <TextArea
+//         label="About"
+//         id="about"
+//         placeholder="Write about yourself..."
+//       />
+
+//       <SelectField label="Country" id="country" options={["KH", "KI", "KT"]} />
+
+//       <UploadFile />
+
+//       <CheckboxField
+//         id="comments"
+//         label="Comments"
+//         description="Get notified about comments."
+//         defaultChecked
+//       />
+
+//       <RadioField
+//         id="notif-all"
+//         name="notifications"
+//         label="Send all notifications"
+//         value="all"
+//         defaultChecked
+//       />
+//       <RadioField
+//         id="notif-important"
+//         name="notifications"
+//         label="Only important"
+//         value="important"
+//       />
+//     </form>
+//   );
+// }
+
 import InputText from "./input_forms/InputText";
 import TextArea from "./input_forms/TextArea";
 import SelectField from "./input_forms/SelectField";
 import CheckboxField from "./input_forms/Checkbox";
 import RadioField from "./input_forms/RadioField";
 import UploadFile from "./input_forms/UploadFile";
+import { formSchema } from "./FormSchema";
 
-export default function Form() {
+export default function Forms({
+  category,
+  certificate,
+}: {
+  category: "ikan" | "hewan" | "tumbuhan";
+  certificate: "health" | "quarantine";
+}) {
+  const fields = formSchema[certificate][category];
+
   return (
-    <form className="bg-F8F6F0 p-6 rounded-md space-y-8">
-      <InputText label="Username" id="username" placeholder="janesmith" />
+    <form className="bg-gray-200 dark:bg-gray-900 p-6 rounded-xl grid grid-cols-1 md:grid-cols-2 gap-6">
+      {fields.map((field, i) => {
+        switch (field.type) {
+          case "text":
+            return (
+              <InputText
+                key={i}
+                id={field.name}
+                label={field.label}
+                placeholder={field.placeholder}
+              />
+            );
 
-      <TextArea
-        label="About"
-        id="about"
-        placeholder="Write about yourself..."
-      />
+          case "textarea":
+            return (
+              <TextArea
+                key={i}
+                id={field.name}
+                label={field.label}
+                placeholder={field.placeholder}
+              />
+            );
 
-      <SelectField label="Country" id="country" options={["KH", "KI", "KT"]} />
+          case "select":
+            return (
+              <SelectField
+                key={i}
+                id={field.name}
+                label={field.label}
+                options={field.options}
+              />
+            );
 
-      <UploadFile />
-
-      <CheckboxField
-        id="comments"
-        label="Comments"
-        description="Get notified about comments."
-        defaultChecked
-      />
-
-      <RadioField
-        id="notif-all"
-        name="notifications"
-        label="Send all notifications"
-        value="all"
-        defaultChecked
-      />
-      <RadioField
-        id="notif-important"
-        name="notifications"
-        label="Only important"
-        value="important"
-      />
+          case "checkbox":
+            return (
+              <CheckboxField
+                key={i}
+                id={field.name}
+                label={field.label}
+                description={field.description}
+                defaultChecked={field.defaultChecked}
+              />
+            );
+        }
+      })}
     </form>
   );
 }

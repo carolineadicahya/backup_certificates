@@ -56,17 +56,19 @@ import { Route, Routes } from "react-router-dom";
 import Error404 from "./pages/ErrorPage";
 import LoginPage from "./pages/Login";
 import Profile from "./pages/Profile";
+import FormPage from "./components/TestComponents";
 
 function App() {
   return (
     <Routes>
       {/* Public page (tanpa navbar) */}
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/" element={<LoginPage />} />
 
       {/* Private pages (dengan Navbar) */}
       <Route element={<Layout />}>
         <Route path="/users/document-type" element={<DocumentType />} />
         <Route path="/users/certificate-type" element={<CertificateType />} />
+        <Route path="/form" element={<FormPage />} />
         <Route path="/users/profile" element={<Profile />} />
       </Route>
 

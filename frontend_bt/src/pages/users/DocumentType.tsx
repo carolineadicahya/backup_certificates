@@ -11,7 +11,12 @@ export default function DocumentType() {
 
   return (
     <div className="mx-auto max-w-4xl p-6">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="flex flex-col items-center p-6 gap-3">
+        <h1 className="text-sm font-semibold text-(--color-primary) mb-2 text-center opacity-90">
+          Pilih Dokumen
+        </h1>
+      </div>
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
         {/* CARD SERTIFIKAT */}
         <Card>
           <div className="flex flex-col items-center gap-4">
