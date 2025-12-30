@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card";
 import { Fish, PawPrint, Sprout } from "lucide-react";
 
@@ -15,6 +16,8 @@ const certificateTypes: { key: CertificateKey; label: string }[] = [
 ];
 
 export default function CertificateType() {
+  const navigate = useNavigate();
+
   return (
     // <div className="bg-[url(/src/assets/nisa.jpg)] ...">
     <div className="flex flex-col items-center p-6 gap-3">
@@ -35,6 +38,11 @@ export default function CertificateType() {
                 </h2>
                 <button
                   type="button"
+                  onClick={() =>
+                    navigate("/users/form", {
+                      state: { category: item.key },
+                    })
+                  }
                   className="w-full rounded-md bg-(--color-primary) px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-(--color-primary-hover) dark:bg-(--color-primary) dark:hover:bg-(--color-primary-hover)">
                   Buat Sertif
                 </button>

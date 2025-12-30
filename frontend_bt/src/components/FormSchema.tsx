@@ -1,6 +1,6 @@
 export type FieldType = "text" | "textarea" | "select" | "checkbox";
-export type Category = "ikan" | "hewan" | "tumbuhan";
-export type Certificate = "health" | "quarantine";
+export type Category = "KI" | "KH" | "KT";
+export type Certificates = "health" | "quarantine";
 
 export interface BaseField {
   type: FieldType;
@@ -35,12 +35,12 @@ export type FormField =
   | SelectFieldType
   | CheckboxField;
 
-// export type Category = "ikan" | "hewan" | "tumbuhan";
-// export type Certificate = "health" | "quarantine";
-
-export const formSchema: Record<Certificate, Record<Category, FormField[]>> = {
+export const formSchema: Record<
+  Certificates,
+  Partial<Record<Category, FormField[]>>
+> = {
   health: {
-    ikan: [
+    KI: [
       { type: "text", name: "nama", label: "Nama Ikan", placeholder: "Lele" },
       {
         type: "text",
@@ -56,26 +56,26 @@ export const formSchema: Record<Certificate, Record<Category, FormField[]>> = {
       },
       { type: "text", name: "tanggal", label: "Tanggal Pemeriksaan" },
     ],
-    hewan: [
+    KH: [
       { type: "text", name: "nama", label: "Nama Hewan" },
       { type: "text", name: "spesies", label: "Spesies" },
       { type: "textarea", name: "kondisi", label: "Kondisi Kesehatan" },
     ],
-    tumbuhan: [
+    KT: [
       { type: "text", name: "nama", label: "Nama Tanaman" },
       { type: "text", name: "varietas", label: "Varietas" },
     ],
   },
 
   quarantine: {
-    ikan: [
+    KI: [
       { type: "text", name: "lokasi", label: "Lokasi Karantina" },
       { type: "text", name: "suhu", label: "Suhu Air" },
     ],
-    hewan: [
+    KH: [
       { type: "text", name: "lokasi", label: "Lokasi Karantina" },
       { type: "text", name: "kandang", label: "Jenis Kandang" },
     ],
-    tumbuhan: [{ type: "text", name: "lokasi", label: "Lokasi Karantina" }],
+    KT: [{ type: "text", name: "lokasi", label: "Lokasi Karantina" }],
   },
 };

@@ -78,28 +78,31 @@ import Forms from "./Forms";
 
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import FormsInput from "./Forms";
+import type { Category, Certificates } from "./FormSchema";
 
 export default function FormPage() {
   const location = useLocation();
-  const category = location.state?.category ?? "ikan";
 
-  const [certificate, setCertificate] = useState<"health" | "quarantine">(
-    "health"
-  );
+  const rawCategory = location.state?.category;
+  const category: Category =
+    rawCategory === "KI" || rawCategory === "KH" || rawCategory === "KT"
+      ? rawCategory
+      : "KI";
+
+  const [certificate, setCertificate] = useState<Certificates>("health");
 
   return (
     <div className="min-h-screen p-10 space-y-6">
       <h1 className="text-2xl font-bold capitalize">
-        Form Sertifikat — Karantina {category}
+        Form Sertifikat — {category}
       </h1>
 
       {/* Dropdown Sertifikat */}
       <select
-        className="border p-3 rounded-lg"
+        className="border p-3 rounded-lg "
         value={certificate}
-        onChange={(e) =>
-          setCertificate(e.target.value as "health" | "quarantine")
-        }>
+        onChange={(e) => setCertificate(e.target.value as Certificates)}>
         <option value="health" className="dark:text-gray-900">
           Sertifikat Kesehatan
         </option>
@@ -109,7 +112,7 @@ export default function FormPage() {
       </select>
 
       {/* FORM DINAMIS */}
-      <Forms category={category} certificate={certificate} />
+      <FormsInput category={category} certificate={certificate} />
     </div>
   );
 }

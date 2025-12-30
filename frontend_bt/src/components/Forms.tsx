@@ -538,16 +538,24 @@ import SelectField from "./input_forms/SelectField";
 import CheckboxField from "./input_forms/Checkbox";
 import RadioField from "./input_forms/RadioField";
 import UploadFile from "./input_forms/UploadFile";
-import { formSchema } from "./FormSchema";
+import { formSchema, type Category, type Certificates } from "./FormSchema";
 
-export default function Forms({
+export default function FormsInput({
   category,
   certificate,
 }: {
-  category: "ikan" | "hewan" | "tumbuhan";
-  certificate: "health" | "quarantine";
+  category: Category;
+  certificate: Certificates;
 }) {
   const fields = formSchema[certificate][category];
+
+  if (!fields) {
+    return (
+      <div className="p-6 rounded-xl bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200">
+        Jenis sertifikat ini tidak memiliki form untuk kategori {category}
+      </div>
+    );
+  }
 
   return (
     <form className="bg-gray-200 dark:bg-gray-900 p-6 rounded-xl grid grid-cols-1 md:grid-cols-2 gap-6">

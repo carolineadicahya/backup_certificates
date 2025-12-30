@@ -46,9 +46,6 @@
 
 import { useState } from "react";
 import "./App.css";
-// import Navbar from "./components/Navbar";
-// import Form from "./components/Forms";
-// import Dropdown from "./components/Dropdown";
 import Layout from "./components/Layout";
 import DocumentType from "./pages/users/DocumentType";
 import CertificateType from "./pages/users/CertificateType";
@@ -68,7 +65,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/users/document-type" element={<DocumentType />} />
         <Route path="/users/certificate-type" element={<CertificateType />} />
-        <Route path="/form" element={<FormPage />} />
+        <Route path="/users/form" element={<FormPage />} />
         <Route path="/users/profile" element={<Profile />} />
       </Route>
 

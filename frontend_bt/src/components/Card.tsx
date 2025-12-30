@@ -3,7 +3,8 @@ import React from "react";
 
 interface CardProps {
   children: React.ReactNode;
-  className?: string; // opsional, untuk menambah styling khusus
+  className?: string;
+  onClick?: () => void;
 }
 
 export default function Card({ children, className = "" }: CardProps) {
