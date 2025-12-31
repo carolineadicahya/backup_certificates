@@ -539,6 +539,7 @@ import CheckboxField from "./input_forms/Checkbox";
 import RadioField from "./input_forms/RadioField";
 import UploadFile from "./input_forms/UploadFile";
 import { formSchema, type Category, type Certificates } from "./FormSchema";
+import { useNavigate } from "react-router-dom";
 
 export default function FormsInput({
   category,
@@ -556,53 +557,63 @@ export default function FormsInput({
       </div>
     );
   }
+  const navigate = useNavigate();
 
   return (
-    <form className="bg-gray-200 dark:bg-gray-900 p-6 rounded-xl grid grid-cols-1 md:grid-cols-2 gap-6">
-      {fields.map((field, i) => {
-        switch (field.type) {
-          case "text":
-            return (
-              <InputText
-                key={i}
-                id={field.name}
-                label={field.label}
-                placeholder={field.placeholder}
-              />
-            );
+    <div>
+      <form className="bg-gray-200 dark:bg-gray-900 p-6 rounded-xl grid grid-cols-1 md:grid-cols-2 gap-6">
+        {fields.map((field, i) => {
+          switch (field.type) {
+            case "text":
+              return (
+                <InputText
+                  key={i}
+                  id={field.name}
+                  label={field.label}
+                  placeholder={field.placeholder}
+                />
+              );
 
-          case "textarea":
-            return (
-              <TextArea
-                key={i}
-                id={field.name}
-                label={field.label}
-                placeholder={field.placeholder}
-              />
-            );
+            case "textarea":
+              return (
+                <TextArea
+                  key={i}
+                  id={field.name}
+                  label={field.label}
+                  placeholder={field.placeholder}
+                />
+              );
 
-          case "select":
-            return (
-              <SelectField
-                key={i}
-                id={field.name}
-                label={field.label}
-                options={field.options}
-              />
-            );
+            case "select":
+              return (
+                <SelectField
+                  key={i}
+                  id={field.name}
+                  label={field.label}
+                  options={field.options}
+                />
+              );
 
-          case "checkbox":
-            return (
-              <CheckboxField
-                key={i}
-                id={field.name}
-                label={field.label}
-                description={field.description}
-                defaultChecked={field.defaultChecked}
-              />
-            );
-        }
-      })}
-    </form>
+            case "checkbox":
+              return (
+                <CheckboxField
+                  key={i}
+                  id={field.name}
+                  label={field.label}
+                  description={field.description}
+                  defaultChecked={field.defaultChecked}
+                />
+              );
+          }
+        })}
+      </form>
+      <div className="flex flex-wrap gap-4 justify-end items-center">
+        <button
+          // onClick={""}
+          className="px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+          + Buat Sertifikat
+        </button>
+      </div>
+    </div>
   );
 }

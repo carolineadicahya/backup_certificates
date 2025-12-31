@@ -12,11 +12,11 @@ import { classNames } from "../utils/classNames";
 import { useLocation } from "react-router-dom";
 import logoBBKHIT from "../assets/logo_bbkhit(2).png";
 import ProfilePicture from "../assets/nisa wisuda.jpeg";
-// import logoBarantin from "../assets/logo_barantin.png";
 
 const navigation = [
-  { name: "Dashboard", href: "/users/document-type" },
-  { name: "Sertifikasi", href: "/users/certificate-type" },
+  { name: "Dashboard", href: "/users/dashboard" },
+  { name: "Buat Dokumen", href: "/users/document-type" },
+  { name: "Sertifikat", href: "/users/all-certificates" },
   { name: "Formulir", href: "/formulir" },
 ];
 

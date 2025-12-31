@@ -9,6 +9,12 @@ export default function DocumentType() {
     navigate("/users/certificate-type");
   };
 
+  const handleFormulir = (e: React.FormEvent) => {
+    e.preventDefault();
+    // simulasi login berhasil
+    navigate("/users/form-type");
+  };
+
   return (
     <div className="mx-auto max-w-4xl p-6">
       <div className="flex flex-col items-center p-6 gap-3">
@@ -74,6 +80,7 @@ export default function DocumentType() {
 
           <button
             type="submit"
+            onClick={handleFormulir}
             className="w-full rounded-md bg-(--color-primary) px-4 py-2 text-sm font-semibold text-gray-900  shadow-sm hover:bg-(--color-primary-hover) focus-visible:outline focus-visible:outline-2 focus-visible:outline-(--color-primary-active) dark:bg-(--color-primary) dark:hover:bg-(--color-primary-hover)">
             Buat
           </button>

@@ -54,6 +54,9 @@ import Error404 from "./pages/ErrorPage";
 import LoginPage from "./pages/Login";
 import Profile from "./pages/Profile";
 import FormPage from "./components/TestComponents";
+import Dashboard from "./pages/users/Dashboard";
+import AllCertificates from "./pages/users/AllCertificates";
+import FormType from "./pages/users/FormTypes";
 
 function App() {
   return (
@@ -63,9 +66,12 @@ function App() {
 
       {/* Private pages (dengan Navbar) */}
       <Route element={<Layout />}>
+        <Route path="/users/dashboard" element={<Dashboard />} />
         <Route path="/users/document-type" element={<DocumentType />} />
         <Route path="/users/certificate-type" element={<CertificateType />} />
+        <Route path="/users/all-certificates" element={<AllCertificates />} />
         <Route path="/users/form" element={<FormPage />} />
+        <Route path="/users/form-type" element={<FormType />} />
         <Route path="/users/profile" element={<Profile />} />
       </Route>
 

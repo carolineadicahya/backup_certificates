@@ -37,7 +37,6 @@ export default function CertificateType() {
                   {item.label}
                 </h2>
                 <button
-                  type="button"
                   onClick={() =>
                     navigate("/users/form", {
                       state: { category: item.key },

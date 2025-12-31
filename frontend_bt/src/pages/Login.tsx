@@ -11,7 +11,8 @@ export default function LoginPage() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // simulasi login berhasil
-    navigate("/users/document-type");
+    // navigate("/users/document-type");
+    navigate("/users/dashboard");
   };
 
   return (

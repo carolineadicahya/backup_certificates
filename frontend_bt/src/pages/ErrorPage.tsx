@@ -24,7 +24,7 @@ export default function Error404() {
 
       {/* Back Button */}
       <Link
-        to="/login"
+        to="/users/dashboard"
         className="px-6 py-3 rounded-xl bg-(--color-primary) text-gray-900 dark:text-grey-900 font-semibold shadow hover:bg-(--color-primary-hover) transition-all">
         Kembali ke Beranda
       </Link>
