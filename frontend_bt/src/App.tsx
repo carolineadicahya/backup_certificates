@@ -57,6 +57,8 @@ import FormPage from "./components/TestComponents";
 import Dashboard from "./pages/users/Dashboard";
 import AllCertificates from "./pages/users/AllCertificates";
 import FormType from "./pages/users/FormTypes";
+import AllUsers from "./pages/admin/AllUsers";
+import AdminDashboard from "./pages/admin/DashboardAdmin";
 
 function App() {
   return (
@@ -66,6 +68,7 @@ function App() {
 
       {/* Private pages (dengan Navbar) */}
       <Route element={<Layout />}>
+        {/* Users */}
         <Route path="/users/dashboard" element={<Dashboard />} />
         <Route path="/users/document-type" element={<DocumentType />} />
         <Route path="/users/certificate-type" element={<CertificateType />} />
@@ -73,6 +76,10 @@ function App() {
         <Route path="/users/form" element={<FormPage />} />
         <Route path="/users/form-type" element={<FormType />} />
         <Route path="/users/profile" element={<Profile />} />
+
+        {/* Admin */}
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/all-users" element={<AllUsers />} />
       </Route>
 
       {/* Global 404 — HARUS DI LUAR Layout */}

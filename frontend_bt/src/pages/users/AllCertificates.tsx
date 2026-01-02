@@ -157,6 +157,7 @@
 // }
 
 import { useMemo, useState } from "react";
+import SearchBar from "../../components/SearchBar";
 
 type CertificateType = "health" | "quarantine";
 type CertificateStatus = "pending" | "approved" | "rejected";
@@ -208,6 +209,7 @@ const dummyCertificates: CertificateFile[] = [
 
 export default function AllCertificates() {
   /* ================= Filter State ================= */
+  const [search, setSearch] = useState("");
   const [showFilter, setShowFilter] = useState(false);
 
   const [typeFilter, setTypeFilter] = useState<
@@ -227,10 +229,17 @@ export default function AllCertificates() {
 
   /* ================= Filtering Logic ================= */
   const filteredData = useMemo(() => {
-    return dummyCertificates.filter(
-      (item) => typeFilter[item.certificate_type] && statusFilter[item.status]
-    );
-  }, [typeFilter, statusFilter]);
+    return dummyCertificates.filter((item) => {
+      const matchType = typeFilter[item.certificate_type];
+      const matchStatus = statusFilter[item.status];
+
+      const matchSearch =
+        item.product_name.toLowerCase().includes(search.toLowerCase()) ||
+        item.certificate_type.toLowerCase().includes(search.toLowerCase());
+
+      return matchType && matchStatus && matchSearch;
+    });
+  }, [typeFilter, statusFilter, search]);
 
   const statusStyle = (status: string) => {
     if (status === "approved")
@@ -243,16 +252,24 @@ export default function AllCertificates() {
   return (
     <div className="min-h-screen px-4 sm:px-6 lg:px-10 py-8 dark:transition-colors">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4 justify-between mb-6">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
           Sertifikat
         </h1>
+        <div className="flex gap-3 w-full sm:w-auto">
+          <SearchBar
+            value={search}
+            onChange={setSearch}
+            placeholder="🔍 Cari Sertifikat..."
+          />
 
-        <button
-          onClick={() => setShowFilter(true)}
-          className="px-4 py-2 rounded-lg border bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-700">
-          ☰ Filter
-        </button>
+          <button
+            onClick={() => setShowFilter(true)}
+            className="h-11 flex items-center justify-center gap-2 px-4 py-2 rounded-xl border bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition whitespace-nowrap">
+            <span className="text-lg">☰</span>
+            <span className="hidden sm:inline">Filter</span>
+          </button>
+        </div>
       </div>
 
       {/* ================= Certificate List ================= */}
